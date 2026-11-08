@@ -72,8 +72,19 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
 
-<script src="https://cdn.ikh.media/js/no-facebook.js"></script>
-
+<script> 
+(function() {
+  const url = new URL(window.location.href);
+  if (url.searchParams.has('fbclid')) {
+    url.searchParams.delete('fbclid');
+    // Update the address bar without reloading
+    window.history.replaceState(null, '', url.toString());
+  }
+})();</script>
+<script>
+if (window.location.hostname.indexOf("www") == 0) {
+    window.location = window.location.href.replace("www.","");
+}</script>
 
 <style>
 
